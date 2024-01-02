@@ -18,17 +18,35 @@ const Login = ({ onLogin }) => {
       localStorage.setItem('token', data.token);
 
       // Call the onLogin function to update the state in the parent component
-      onLogin(data.token);
+      onLogin(data.token, data.id);
     } catch (error) {
       console.error('Login error:', error);
     }
   };
 
   return (
-    <div>
-      <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
+    <div className="flex justify-center items-center h-screen bg-gray-800 bg-opacity-50 fixed top-0 left-0 w-full">
+      <div className="bg-white p-8 rounded-md shadow-md">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Login</h2>
+        <input
+          className="border p-2 mb-4 w-full rounded-md"
+          type="text"
+          placeholder="Username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          className="border p-2 mb-4 w-full rounded-md"
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          onClick={handleLogin}
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 };
