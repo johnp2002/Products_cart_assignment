@@ -14,10 +14,7 @@ const Login = ({ onLogin }) => {
       });
       const data = await response.json();
 
-      // Save token to local storage or state management
       localStorage.setItem('token', data.token);
-
-      // Call the onLogin function to update the state in the parent component
       onLogin(data.token, data.id);
     } catch (error) {
       console.error('Login error:', error);

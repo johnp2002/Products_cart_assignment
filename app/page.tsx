@@ -9,8 +9,12 @@ const HomePage = () => {
   const [token, setToken] = useState('');
   const [userId, setuserId] = useState('');
   const router = useRouter();
+
   const handleLogin = (newToken,id) => {
     
+    if(newToken.toString() == 'undefined'){
+      return;
+    }
     Cookies.set('token', newToken, { path: '/' });
     Cookies.set('token', newToken, { path: '/home' });
     Cookies.set('id', id, { path: '/' });
